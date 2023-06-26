@@ -1,24 +1,27 @@
-import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import AddNewProductComponent from './components/AddNewProductComponent/AddNewProductComponent';
+import GetAllProductsComponent from './components/GetAllProductsComponent/GetAllProductsComponent';
+import GetCartItemsComponent from './components/GetCartItemsComponent/GetCartItemsComponent';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+            <div className="container">
+              <h1>Shopify - The Shopping App</h1>
+              
+            <nav className="nav-menu">
+                <Link to="/" >Home</Link>
+                <Link to="/admin/add" >Add Products</Link>
+                <Link to="/cart" >Cart</Link>
+            </nav>
+           <Routes>
+                 <Route exact path='/' element={<GetAllProductsComponent/>}></Route>
+                 <Route path='/admin/add' element={<AddNewProductComponent/>}></Route>
+                 <Route path='/cart' element={<GetCartItemsComponent/>}></Route>
+          </Routes>
+          </div>
+       </Router>
   );
 }
 
