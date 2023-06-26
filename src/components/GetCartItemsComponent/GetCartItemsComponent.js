@@ -16,7 +16,6 @@ function GetCartItemsComponent() {
     const fetchCartTotal  = async() => {
         const response = await fetch('http://localhost:3500/api/v1/shoppingCart/cartTotal')
         const data = await response.json()
-        // console.log(response);
         console.log(data);
         if (data.length === 0)
         {
@@ -39,7 +38,7 @@ function GetCartItemsComponent() {
             method:'DELETE'
         })
         alert(`Cart total is Rs.${totalCartCost}/-
-You will be redirected to payment soon.`)
+                You will be redirected to payment soon.`)
         window.location.href='/'
     }
 
@@ -55,5 +54,5 @@ You will be redirected to payment soon.`)
     </React.Fragment>
   )
 }
-
 export default GetCartItemsComponent
+
